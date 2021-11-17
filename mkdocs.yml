@@ -1,12 +1,15 @@
 site_name: Smelly Cat's Wiki
 site_author: Eric
 site_url: http://wiki.choumaomi.com
+site_description: '个人编程经验分享，wiki码农库'
+docs_dir: 'docs'
 # 左侧导航
 nav:
 - Home: index.md
 - "颤三": a.md
 - "个人博客": database.md
 - "系统": 数据结构.md
+- "个人博客": https://www.choumaomi.com
 
 # 本地调试端口
 dev_addr: 127.0.0.1:8080
@@ -22,6 +25,11 @@ theme:
     accent: 'Light Blue'
   feature:
     tabs: false
+  shortcuts:
+    help: 191    # ?
+    next: 78     # n
+    previous: 80 # p
+    search: 83   # s
 
 # 自定义css
 extra_css:
@@ -36,6 +44,7 @@ extra_javascript:
 
 # 一些扩展
 markdown_extensions:
+- smarty
 - markdown.extensions.attr_list
 - admonition
 - codehilite:

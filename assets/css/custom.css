@@ -25,3 +25,6 @@ a.boxedThumb:hover {
   transform: scale(1.05);
   z-index: 5;
 }
+.md-header {
+  background-color: black;
+}
