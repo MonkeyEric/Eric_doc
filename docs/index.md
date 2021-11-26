@@ -1,17 +1,42 @@
-# Welcome to MkDocs
+# Welcome to Smell Cat's Wiki
+```
+为你加油！！！！！！
+　☆ *　. 　☆
+　　. ∧＿∧　∩　* ☆
+* ☆ ( ???)/ .
+　. ?　　 ノ* ☆
+☆ * (つ ノ .☆
+　　 (ノ
+```
+# 序（当你啥都不会的时候，先从模仿开始）
+之前在看各个大神的博客网站，一次机会，看到了三颗豆子的wiki，个人觉得网页特别简洁，就是为了记录，而且后端和前端编写也不是很难，
+新添加文件就用markdown就可以，这样的方式很舒服，所以也像模仿人家开始建立网站
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+本wiki网站将自己学到得，接触到得东西记录下来，之前尝试过amwiki框架，但是没有成功，主要是后期人家不更新框架了，同时又考虑到中文等因素，最后采取使用Mkdocs
 
-## Commands
+# mkdocs的框架优点:
+* 支持多种主题，供你选择
+* 搭建、开发特别简单，后期可以绑定到Github Pages或者搭建到自己服务器上【个人觉得，比什么印象笔记好多了，不过也是感谢印象笔记，让我弃坑，卖服务器，自己搭建博客网站。即提升自己，又花钱少】
+* 反正自己实践一下就知道了，哈哈哈哈哈
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+# 主要包含内容
+* （软件安装、运行中、编程中）出错的解决方法
+* （软件、系统、插件）快捷键
+* 英文说明文档的翻译
+* 常用文档，例如ORM、Linux命令、数据库命令等等
+* 个人编写的小工具【添加小数点符号等等】
 
-## Project layout
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+# 联系我
+ [个人博客（记录好玩的编程经验）](#) /  [github（开源项目）](http://MonkeyEric.github.io) /  [发送邮件：1649107451@qq.com]()
+
+```
+为你的朋友加油~~
+☆ *　. 　☆
+　　 ∧＿∧ ∩　* ☆
+* ☆ ( ???)/ .
+　. ?　　 ノ* ☆
+☆ * (つ ノ .☆
+　　 (ノ
+
+```
