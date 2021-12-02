@@ -18,6 +18,7 @@ nav:
     - ORM:
         - MongoEngine: ORM/MongoEngine官方文档.md
         - SqlAlchemy: ORM/SqlAlchemy的官方文档.md
+
     - python基础:
         - 面向对象: python_study/python面向对象的相关概念.md
         - 同步和异步 : python_study/同步和异步.md
@@ -29,7 +30,8 @@ nav:
         - 进程&线程&协程: python_study/进程&线程&协程.md
         - 通过类创建子进程: python_study/通过类创建子进程.md
         - 面向对象变成: python_study/面向对象编程.md
-
+- 数据库:
+    - pgsql的安装: 数据库/centos安装pgsql.md
 - 工具包:
     - logging模块: 工具包/logging模块.md
     - 保留小数: 工具包/保留小数.md
