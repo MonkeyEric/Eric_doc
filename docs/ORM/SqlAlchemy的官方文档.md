@@ -175,7 +175,7 @@ class Address(Base):
 
 #### **具体解释：**
 1、假如没有relationship，我们只能像下面这样调用关系数据。
-#给定参数user.name，获取该user的addresses（从一个表查询完了之后，再去另一个表中查找）
+> 给定参数user.name，获取该user的addresses（从一个表查询完了之后，再去另一个表中查找）
 ```
 def get_addresses_from_user(user_name):
     user=session.query(User).filter_by(name=user_name).first()
