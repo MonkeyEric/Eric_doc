@@ -36,6 +36,8 @@ nav:
         - staticmethod和classmethod: python_study/@staticmethod和@classmethod.md
         - dict和set: python_study/使用dict和set.md
         - gunicorn部署flask: python_study/使用gunicorn部署flask项目.md
+- 架构及开发工具:
+    - DevOps介绍: 架构及开发工具/Devops.md
 - 数据库:
     - pgsql的安装: 数据库/centos安装pgsql.md
 - 面试题:
