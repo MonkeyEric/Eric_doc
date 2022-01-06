@@ -592,3 +592,10 @@ post = BlogPost(title='Test', page_views=0, tags=['database', 'mongo'])
 >>>post.tags
 ['database', 'mongodb']
 ```
+
+### (二十三)动态查询数据
+
+```python
+query = {"status":"default"}
+User.objects(__raw__==query).order_by("-status")
+```
