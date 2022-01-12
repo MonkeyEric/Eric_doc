@@ -244,9 +244,9 @@ channel.basic_consume(queue=queue_name,
 channel.start_consuming()
 ```
 
-
-[参考博客链接](https://www.cnblogs.com/pyedu/p/11866829.html)
-[博客对应视频链接](https://www.bilibili.com/video/BV12A411q7dE?p=7&spm_id_from=pageDriver)
-[centos安装rabbitMq链接](https://www.cnblogs.com/fengyumeng/p/11133924.html)
-[windows安装rabbitMq链接](https://blog.csdn.net/xtjatswc/article/details/107294414)
-[windows下载rabbitMq链接](https://www.jb51.net/softs/653521.html)
+## 3.帮助
+* [参考博客链接](https://www.cnblogs.com/pyedu/p/11866829.html)
+* [博客对应视频链接](https://www.bilibili.com/video/BV12A411q7dE?p=7&spm_id_from=pageDriver)
+* [centos安装rabbitMq链接](https://www.cnblogs.com/fengyumeng/p/11133924.html)
+* [windows安装rabbitMq链接](https://blog.csdn.net/xtjatswc/article/details/107294414)
+* [windows下载rabbitMq链接](https://www.jb51.net/softs/653521.html)
