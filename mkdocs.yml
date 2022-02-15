@@ -36,6 +36,13 @@ nav:
         - staticmethod和classmethod: python_study/@staticmethod和@classmethod.md
         - dict和set: python_study/使用dict和set.md
         - gunicorn部署flask: python_study/使用gunicorn部署flask项目.md
+    - 数据分析:
+        - numpy: 数据分析/numpy.md
+        - pandas: 数据分析/pandas.md
+        - 数据清洗: 数据分析/数据清洗.md
+        - dataFrame的级联和合并操作 : 数据分析/dataFrame的级联和合并操作.md
+        - 金融相关知识: 数据分析/金融相关知识.md
+        - 人口分析案例 : 数据分析/人口分析案例/HumanAnalysis.md
 - 架构及开发工具:
     - DevOps介绍: 架构及开发工具/Devops.md
     - RabbitMq使用: 架构及开发工具/rabbitmq.md
