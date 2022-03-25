@@ -1,0 +1,12 @@
+<project>
+	<profiles>
+		<profile>
+			<id>main</id>
+
+		</profile>
+		<profile>
+			<id>wiki</id>
+		</profile>
+
+	</profiles>
+</project>
