@@ -1,10 +1,10 @@
-### 1. 版本检查
+## 1. 版本检查
 ```
 import sqlalchemy
 sqlalchemy.__version__
 ```
 
-### 2. 链接
+## 2. 链接
 echo：True   会显示每条执行的SQL语句，可以关闭。
 create_engine()返回一个Engine的实例，并且它表示通过数据库语法处理细节的核心接口
 ```
@@ -12,7 +12,7 @@ from sqlalchemy import create_engine
 engine = create_engine('sqlite:///:memory',echo=True)
 ```
 
-### 3.声明映像
+## 3.声明映像
 当使用orm时，构造进程首先描述数据库的表，然后定义我们用来映射哪些表的类。
 在现版本中，这2个任务通常一起执行，通过使用Declarative方法，我们可以创建一些包含描述要被映射的实际数据库表的准则的映射类。
 通过delarative_base()创建一个基类：
@@ -26,12 +26,12 @@ class User(Base):
     id = Column(Integer,primary_key=True)
     name = Column(String)
 ```
-### 4.构造模式（暂无）
-### 5.创建映射类的实例
+## 4.构造模式（暂无）
+## 5.创建映射类的实例
 ```
 ed_user = User(name='ed',fullname='Ed Jones',password='edpassword')
 ```
-### 6. 创建会话
+## 6. 创建会话
 orm通过Session与数据库建立链接的，当应用第一次载入时，我们定义一个Session类(声明create_engine（）的同时)，这个session类为新的session对象提供工厂服务。
 ```
 from sqlalchemy.orm import sessionmaker
@@ -43,17 +43,17 @@ session = Session()
 ```
 此时对象的实例仍在等待中，只有在被使用的时候，才会建立链接。
 
-### 7.添加新对象
+## 7.添加新对象
 ```
 ed_user = User(name='ed',fullname='Ed Jones',passoword='edspassword')
 session.add(ed_user)
 session.commit()  # 提交所有剩余的更改数据库
 ```
-### 8.回滚
+## 8.回滚
 ```
 session.rollback()
 ```
-### 9. 查询
+## 9. 查询
 通过session的query()方法创建一个查询对象。这个函数的参数数量是可变的，参数可以是任何类或者是类的描述的集合。
 ```
 for instance in session.query(User).order_by(User.id)
@@ -81,7 +81,7 @@ Query的Limit和Offset操作：
 for u in session.query(User).order_by(User.id)[1:3]:
     print u
 ```
-#### 9.1 关键字过滤查询
+### 9.1 关键字过滤查询
 
 * query.filter(User.name == 'ed')  # 等于
 * query.filter(User.name != 'ed')   # 不等于
@@ -106,7 +106,7 @@ from sqlalchemy import or_
 * query.filter(or_(User.name =='ed',User.name =='wendy'))  # or
 * query.filter(User.name.match('Wendy'))  #match
 
-#### 9.2 返回列表和数量
+### 9.2 返回列表和数量
 
 1. all()返回一个列表：可以进行Python列表的操作
 ```
@@ -137,9 +137,9 @@ except:
 query = session.query(User.id).filter(User.name =='ed')
 query.scarlar()
 ```
-#### 9.3 使用字符串SQL
+### 9.3 使用字符串SQL
 
-#### 9.4 计数
+### 9.4 计数
  count()用来统计查询结果的数量 
 ```
 session.query(User).filter(User.name.like('%ed')).count()
@@ -156,7 +156,7 @@ session.query(func.count('*')).select_from(User).scalar()
 或者
 session.query(func.count(User.id)).scalar()
 ```
-### 10. 建立联系（外键）
+## 10. 建立联系（外键）
 ```
 class User(Base):
     __tablename__ = 'user'
@@ -173,7 +173,7 @@ class Address(Base):
     user_id = Column(Integer, ForeignKey('user.id'))
 ```
 
-#### **具体解释：**
+**具体解释：**
 1、假如没有relationship，我们只能像下面这样调用关系数据。
 > 给定参数user.name，获取该user的addresses（从一个表查询完了之后，再去另一个表中查找）
 ```
@@ -192,7 +192,9 @@ def get_addresses_from_user(user_name):
     user=session.query(User).filter_by(name=user_name).first()
     return user.addresses
 ```
+
 **注意，在上面的addresses属性中，我们并没有定义backref属性，所以我们可以通过User对象获取所拥有的地址，但是不能通过Address对象获取到所属的用户**
+
 ```
 >>> u = User()
 >>> u.addresses
@@ -212,12 +214,13 @@ addresses = relationship('Address', backref='user')
 
 
 **概念性的东西**
->在大多数的外键约束关系数据库只能连接到一个主键列，或具有唯一约束的列。
->外键约束如果是指向多个列的主键，并且它本身也具有多列，这种被称为：“复合外键”
->外键可以自动更新自己来相应它所引用的行或者列。这被称为级联，是一种建立在关系数据库的功能。
->外键可以参考自己的表格。这种被称为“自引”外键
+>1. 在大多数的外键约束关系数据库只能连接到一个主键列，或具有唯一约束的列。
+>2. 外键约束如果是指向多个列的主键，并且它本身也具有多列，这种被称为：“复合外键”
+>3. 外键可以自动更新自己来相应它所引用的行或者列。这被称为级联，是一种建立在关系数据库的功能。
+>4. 外键可以参考自己的表格。这种被称为“自引”外键
 
-#### backref 和 back_populates的区别
+### 10.1 backref 和 back_populates的区别
+
 [brackref和back_populates的区别](https://blog.csdn.net/sinat_41667855/article/details/118729091?spm=1001.2014.3001.5501)
 放代码：
 ```
@@ -248,7 +251,7 @@ class Comment(db.Model):   
 > remote_side
 * remote_side 字段用于建立多对一的关系，如果不加这个字段会报错。
 
-### 11.操作主外键关联的对象
+## 11.操作主外键关联的对象
 现在我们已经在User类中创建了一个空的addresser集合，可变集合类型，例如set和dict，都可以用，但是默认的集合类型是list。
 ```
 >>>jack = User(name='jack',fullname='Jack Bean',passowrd ='gjffdd')
@@ -259,7 +262,7 @@ class Comment(db.Model):   
 ```
 jack.addresses = [Address(email_adress='jack@google.com'),Address('j25@yahoo.com')]
 ```
-### 12.使用JOINS查询
+## 12.使用JOINS查询
 现在有了2张表，可以进行更多的查询操作。
 ```
 for u,a in session.query(User,Address).filter(User.id==Adress.user_id).filter(Address.email_address=='jack@google.com').all()
@@ -280,7 +283,7 @@ query.join(Address,User.addresses)  # 同样，有明确的目标
 query.join('addresses')  # 同样，使用字符串
 query.outer_join(User.addresses)  # LEFT OUTER JOIN
 ```
-#### 1.使用别名
+### 12.1 使用别名
 当在多个表中查询时，如果同一张表需要被引用好几次，SQL通常要求对这个表起一个别名，因此，SQL可以区分这个表进行的其他操作。Query也支持别名的操作。下面我们joinAddress实体两次，找到同时拥有2个不同的email的用户。
 ```
 >>> from sqlalchemy.orm import aliased
@@ -295,7 +298,7 @@ query.outer_join(User.addresses)  # LEFT OUTER JOIN
       print username,email1
 ```
 
-#### 2.使用子查询
+### 12.2 使用子查询
 ```
 from sqlalchemy.sql import func
 stmt = session.query(Address.user_id.func.count('*').
@@ -304,7 +307,7 @@ stmt = session.query(Address.user_id.func.count('*').
 for u,count in session.query(User,stmt.c.address_count).outerjoin(stmt,User.id ==stmt.c.user_id).order_by(User.id)
     print u,count
 ```
-#### 3.从子查询中选择实体
+### 12.3 从子查询中选择实体
 上面的代码中，我们只返回了包含子查询的一个列的结果。如果想要子查询映射到一个实体的话，使用aliaesd()设置一个要映射类的子查询别名。
 ```
 stmt = session.query(Address).filter(Address.email_address!='j25@yahoo.com').subquery()
@@ -314,8 +317,8 @@ adalias = aliased(Address,stmt)
     print address
 ```
 
-#### 4.使用exists（存在？)
-#### 5.常见的关系运算符
+### 12.4 使用exists（存在？)
+### 12.5 常见的关系运算符
 == != None 都是用在多对一中，而contains()用在一对多的集合中：
 ```
 query.filter(Address.user ==someuser)

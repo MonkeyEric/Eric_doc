@@ -31,7 +31,7 @@ nav:
         - 虚拟环境配置: python_study/虚拟环境配置.md
         - 进程&线程&协程: python_study/进程&线程&协程.md
         - 通过类创建子进程: python_study/通过类创建子进程.md
-        - 面向对象变成: python_study/面向对象编程.md
+        - 面向对象编程: python_study/面向对象编程.md
         - IO编程: python_study/IO编程.md
         - staticmethod和classmethod: python_study/@staticmethod和@classmethod.md
         - dict和set: python_study/使用dict和set.md
@@ -47,8 +47,13 @@ nav:
         - 用户消费行为分析: 数据分析/用户消费行为分析/用户消费行为分析.md
         - 政治献金案例: 数据分析/政治献金案例/政治献金.md
 - 架构及开发工具:
-    - DevOps介绍: 架构及开发工具/Devops.md
+    - Devops与TestOps介绍: 架构及开发工具/Devops与TestOps.md
     - RabbitMq使用: 架构及开发工具/rabbitmq.md
+    - 《jenkins持续集成》:
+        - 1.持续集成及jenkins介绍: 架构及开发工具/jenkins持续集成入门到精通/1.持续集成及jenkins介绍.md
+        - 2.jenkins安装和持续集成环境配置 : 架构及开发工具/jenkins持续集成入门到精通/2.jenkins安装和持续集成环境配置.md
+        - 3.jenkins构建Maven项目: 架构及开发工具/jenkins持续集成入门到精通/3.jenkins构建Maven项目.md
+        - 4.基于k8s构建jenkins持续集成平台: 架构及开发工具/jenkins持续集成入门到精通/4.基于k8s构建jenkins持续集成平台.md
 - 数据库:
     - pgsql的安装: 数据库/centos安装pgsql.md
 - 面试题:
@@ -66,12 +71,12 @@ nav:
 
 - mkdocs使用方法:
     - '流程图': flow_method.md
-- 读书:
-    - 定位逻辑: 读书/定位逻辑.md
-    - 找对英语学习方法的第一本书: 读书/找对英语学习方法的第一本书.md
-    - 能力陷阱: 读书/能力陷阱.md
-    - 责任病毒: 读书/责任病毒.md
-    - 销售就是要玩转情商: 读书/销售就是玩转情商.md
+#- 读书:
+#    - 定位逻辑: 读书/定位逻辑.md
+#    - 找对英语学习方法的第一本书: 读书/找对英语学习方法的第一本书.md
+#    - 能力陷阱: 读书/能力陷阱.md
+#    - 责任病毒: 读书/责任病毒.md
+#    - 销售就是要玩转情商: 读书/销售就是玩转情商.md
 
 # 本地调试端口
 dev_addr: 127.0.0.1:9008

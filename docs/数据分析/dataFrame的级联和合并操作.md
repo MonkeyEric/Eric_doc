@@ -35,11 +35,11 @@ df1.append(df1)
 df1.append(df2)
 ```
 
-# 合并操作
+## 4. 合并操作
 * merge与concat的区别在于，merge需要依据某一共同列来进行合并
 * 使用pd.merge()合并时，会自动根据两者相同column名称的那一列，作为key来进行合并。
 * 注意每一列元素的顺序不要求一致
-## 1. 一对一合并 
+### 4.1 一对一合并 
 ```python
 import pandas as pd
 import numpy as np
@@ -52,7 +52,7 @@ df2 = DataFrame({'employee':['Lisa','Bob','Jake'],'hire_date':[2004,2008,2012],}
 df1
 ```
 
-## 2. 一对多合并
+### 4.2 一对多合并
 ```python
 #  一对多合并
 df3 = DataFrame({'employee':['Lisa','Jake'],'group':['Accounting','Engineering'],'hire_date':[2014,2016]})

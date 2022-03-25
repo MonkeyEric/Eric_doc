@@ -5,7 +5,7 @@
 在函数前面加上 @classmethod
 
 今天在别人的代码中看到了有在函数前面加上 @staticmethod 和 @classmethod 的情况，查阅相关资料，现把它的用法记录下来。
-## 在函数前面加上 @staticmethod
+## 1. 在函数前面加上 @staticmethod
 ```python
 
 class C(object):
@@ -20,7 +20,7 @@ co.f() # 将类实例化后在调用,结果一样;
 123
 123
 
-## 在函数前面加上 @classmethod
+## 2. 在函数前面加上 @classmethod
 @classmethod修饰符对应的函数不需要实例化，不需要self参数，但是第一个参数需要是cls参数，可以来调用类的属性，类的方法，实例化对象。
 ```python
 

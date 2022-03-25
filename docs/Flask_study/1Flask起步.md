@@ -5,8 +5,8 @@ Flask有2个主要依赖，一个是WSGI（Web Segver Gateway Inteface，Web服�
 > WSGI是Python中用来规定Web服务器如何与PythonWeb程序进行沟通的标准。
 
 
-### 1.1搭建开发环境
-#### 1.1.1 pipenv 工作流
+## 1. 搭建开发环境
+### 1.1 pipenv 工作流
 pipenv是基于pip的python包管理工具，它和pip的用法非常相似，可以看作pip的加强版，它的出现解决了旧的pip+virtualenv+requirement.txt的工作方式的弊端。具体来说，它是pip、pipfile和virutalenv的结合体，它让包安装、包依赖管理和虚拟环境管理更加方便，使用它可以实现更高效的python项目开发工作流。
 使用pip安装pipenv
 ```
@@ -46,11 +46,12 @@ app= FLask(__name__)
 def say hello () :
     return hl>Hello  Flask ' </hl> '
 ```
-### 1.2启动开发服务器
+
+## 2. 启动开发服务器
 ```
 flask run
 ```
-#### 1.自动发现程序实例
+### 2.1 自动发现程序实例
 一般来说，在执行flask run命令运行程序前，我们需要提供程序实例所在模块的位置。我们在上面可以直接运行程序，是因为Flask会自动探测程序实例，自动探测存在下面这些规则：
 
 * 从当前目录寻找app.py和wsgi.py模块，并从中寻找名为app或application的程序实例。
@@ -64,7 +65,7 @@ export FLASK_APP = hello
 ```
 set FLASK_APP =hello
 ```
-#### 2.管理环境变量
+### 2.2管理环境变量
 Flask的自动发现程序实例机制还有第三条规则：如果安装了pythonn-dotenv，那么在使用flask run或其他命令时会是使用它自动从.flaskenv文件和.env文件中加载环境变量。
 >当安装了python-dotenv时，Flask在加载环境变量的优先级是：手动设置的环境变量>.env中设置的环境变量>.flaskenv设置的环境变量
 
@@ -74,7 +75,7 @@ SOME_VAR=1
 # 这是注释
 FOO="BAR"
 ```
-#### 3.设置运行环境
+### 2.3 设置运行环境
 开发环境和生产环境是我们后面会频繁接触到的概念。开发环境是指我们在本地编写和测试程序时的计算机环境，而生产环境与开发环境相对，它指的是网站部署上线用户访问的服务器环境。
 根据运行环境的不同，Flask程序、扩展以及其他程序会改变相应的行为和设置。
 我们将把环境变量FLASK_ENV的值写入.flaskenv文件中。
@@ -91,7 +92,7 @@ pipenv install watchdog --dev
 因为这个包只在开发时才会用到，所以我们在安装命令后添加了一个 --dev选项，这用来把这个包声明为开发依赖。在Pipefile文件中，这个包会被添加到dev-packages部分。
 不过，如果项目中使用了单独的css或JS文件时候，那么浏览器可能会缓存这些文件，从而导致对文件做出的修改不能立刻生效。在浏览器中，我们可以按下Crtl+F5执行硬重载，即忽略缓存并重载（刷新）页面。
 
-### 1.3 Flask扩展
+## 3. Flask扩展
 
 以某扩展实现了 Foo 功能为例，这个扩展的名称将是 Flask Foo Foo-Flask ；程序包或模块的命名使用小写加下划线，即 flask foo 即导人时的名称 ；用于初始化的类一般为 Foo ，实例化的类实 般使用小 ，即 foo 初始化这个假想中的 ask Foo 扩展的示例如下所示：
 ```
@@ -100,7 +101,7 @@ from flask_foo impor Foo
 app =Flask( __name__ )
 foo =Foo (app)
 ```
-### 1.4项目配置
+## 4. 项目配置
 在一个项目中，你会用到许多配置：Flask提供的配置，扩展提供的配置，还有程序特定的配置。和平时使用变量不同，这些配置变量都通过Flask对象的app.config属性作为统一的接口来设置和获取，它指向的Config类实际上是字典的子类，所以你可以像操作其他字典一样操作它。
 ```
 app.config['ADMIN_NAME']= 'Peter'
@@ -111,7 +112,7 @@ app.config.update(
 TESTTING=True,SECRET_KEY='_sadkowpqk_'
 )
 ```
-### 1.5URL与端点
+## 5. URL与端点
 为了解决修改路由的问题，使用FLask提供的url_for()函数获取url，当路中定义的URL规则被修改时候，这个函数总会返回争取的URL。
 ```
 @app .route (’ / ’ )
@@ -119,7 +120,7 @@ def index() :
     return ’ Hello Flask l ’
 调用url_for（'index'）即可获取对应的URL，即'/'
 ```
-### 1.6 Flask命令
+## 6. Flask命令
 通过创建任意一个函数，并为其添加app.cli.command()装饰器，我们就可以注册一个flask命令。
 ```
 @app.cli.command()
@@ -131,14 +132,14 @@ def hello():
 $flask hello
 hello,Human
 ```
-### 1.7 模板与静态文件
+## 7. 模板与静态文件
 默认情况下，模板文件存放在项目根目录中的templates文件中，静态文件放在static文件下。这两个文件需要和包含程序实例的模块处于同一个目录下，对应的项目结构示例如下所示：
 >hello/
 >   templates/
 >   static/
 >   app.py
 
-### 1.8 Flask与MVC架构
+## 8. Flask与MVC架构
 术语views用来表示MVC（Model-View-Controller,模型-视图-控制器）架构中的View。
 在MVC架构中，程序被分为三个组件：数据处理(Model)、用户界面（view）、交互逻辑（controller）。
 严格来说，Flask并不是MVC架构的框架，因为它没有内置数据模型支持。为了方便描述，使用了app.route()装饰器的函数仍被称为书体函数，同时会使用<函数名>视图的形式来代指某个视图函数。

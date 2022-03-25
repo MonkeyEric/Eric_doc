@@ -171,7 +171,7 @@ def set_cookie(name):
 在浏览器中手动添加和修改cookie是很容易的事，仅仅通过浏览器插件就可以实现，为了避免恶意用户伪造cookie，我们需要对敏感的cookie内容进行加密。
 >在编程中，session指用户会话，又称为对话，即服务器和客户端/浏览器之间或桌面程序和用户之间建立的交互活动。在Flask中，session对象用来加密cookie。默认情况下，它会把数据存储在浏览器上一个名为session的cookie里。
 
-##### 1. 设置程序密钥
+1. 设置程序密钥
 session通过密钥对数据进行签名以加密数据，因此，我们得先设置一个密钥。这里的密钥就是一个具有一定复杂度和随机性的字符串。
 程序的密钥可以通过Flask.sercet_key属性或配置变量SECRET_KEY设置，比如：
 ```
@@ -183,7 +183,7 @@ SECRET_KEY = secret string
 import os
 app.secret_key = os.getenv('SECRET_KEY','secret string')
 ```
-##### 2. 模拟用户认证
+2. 模拟用户认证
 这个登录只是简化的实例，在实际的登录中，我们需要在页面上提供登录表单，供用户填写账户和密码，然后在登录视图里验证账户和密码的有效性。
 ```
 from flask import redirect,session,url_for
@@ -315,7 +315,7 @@ def do_something():
     return redirect(url_for('hello'))
 
 ```
-##### 1.获取上一个页面的URL
+1.获取上一个页面的URL
 有两种方式获取：
 
 * Http referer
@@ -340,7 +340,7 @@ def foo():
 def do_something():
     return redirect(request.args.get('next'))
 ```
-##### 2.对url进行安全验证
+2.对url进行安全验证
 如果使用next，很容易被攻击者伪造，比如：http://exampleA.com/login?next=http://maliciousB.
 
 **验证URL安全性**
@@ -377,7 +377,7 @@ ajax()函数支持的参数
 |error  |函数  |请求失败后调用的回调函数  |
 
 #### 5.3 Web安全防范
-##### 1. 注入攻击，主要防范方法
+1. 注入攻击，主要防范方法
 
 * 使用ORM可以一定程度上避免SQL注入问题
 * 验证输入类型。比如某个视图函数接收整型id来查询，那么就在URL规则中限制URL变量为整型
@@ -387,7 +387,7 @@ b . execute (’ SELECT * FROM students WHERE password＝？，password)
 
 ```
 * 转义特殊字符，比如引号、分号和横向等。使用参数化查询时，各种接口库会为我们做转义工作。
-##### 2. XSS攻击，跨站脚本
+2. XSS攻击，跨站脚本
 * 攻击原理
 XSS是注入攻击的一种，攻击者通过将代码注入被攻击者的网站中，用户一旦访问网页便会执行被注入的恶意脚本。XSS主要分为反射型XSS攻击和存储型攻击
 * 防范措施
@@ -400,7 +400,7 @@ def hello():
     response = '<h1>hello,%s</h1>'%escape(name)
 ```
 验证用户输入
-##### 3. CSRF攻击
+3. CSRF攻击
 * 攻击原理
 某用户登录了A网站，认证信息保存在cookie中。当用户访问攻击者创建的B网站时，攻击者通过在B网站发送一个伪造的请求提交到A网站服务器上，让A网站服务器误以为请求来自于自己的网站，于是执行相应的操作，该用户的信息便遭到了篡改。
 * 防范措施

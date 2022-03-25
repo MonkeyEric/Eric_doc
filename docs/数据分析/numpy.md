@@ -1,13 +1,13 @@
+> 环境准备
 
-# 0.环境准备
 * [python3安装步骤](https://www.cnblogs.com/temari/p/13044416.html)
 * [anaconda安装步骤](https://www.likecs.com/default/index/show?id=72014)
 * [jupyter的安装步骤](https://www.cnblogs.com/Zzbj/p/10384122.html)
 * [jupyter快捷键](https://www.cnblogs.com/clschao/articles/10906415.html)
 
 
-# 1.数据分析
-## 1.1 什么是数据分析？
+## 1.数据分析
+### 1.1 什么是数据分析？
 是把隐藏在一些看似杂乱无章的数据背后的信息提炼出来，总结出所研究对象的内在规律。
 * 使得数据的价值最大化
   * 分析用户的消费行为
@@ -30,36 +30,35 @@
   * 短视频平台通过用户的点击和观看行为数据针对性的给用户推送喜欢的视频
  
  
-## 1.2 为什么学习数据分析？
+### 1.2 为什么学习数据分析？
 * 有岗位的需求
   * 数据竞赛平台
 * 是Python数据科学的基础
 * 是机器学习课程的基础
 
-## 1.3 数据分析实现流程
+### 1.3 数据分析实现流程
 * 提出问题
 * 准备数据
 * 分析数据
 * 获得结论
 * 成果可视化
 
-## 1.4 数据分析三大工具
+### 1.4 数据分析三大工具
 * numpy,主要处理数值型数据
 * pandas，主要处理非数值型数据
 * matplotlib, 用来画图
 
 
-# 2. numpy
-## 2.1 numpy模块
+## 2. numpy
+### 2.1 numpy模块
 Numpy(Numerical Python)是Python语言中做科学计算的基础库。重在于数值计算，也是大部分Python科学计算库的基础，多用于在大型、多维数组上执行的数据运算
 
 **注意**
 > 一维数组、二维数组、三维数组…… 你可以将一维数组理解为每页数的一行字，那么每页就是二维数组，一本书就是三维数组……。【这里的*维数组，是基于书本中的每行字来做参照物】
 
 > 以下环境是在jupyter中进行的操作
-## 2.2 numpy的创建
-### 2.2.1 使用np.array()创建
-#### 1. 创建数组 
+### 2.2 numpy的创建
+#### 2.2.1 使用np.array()创建数组 
 array(object, dtype=None, *, copy=True, order='K', subok=False, ndmin=0, like=None)
 > * object：必选参数，数组或嵌套的数列
 > * dtype：数据类型,int32 int64,float等等
@@ -88,7 +87,7 @@ np.array([[1,2,3,4,5],[6,7,8,9,10]])
 >>>np.array([1,'2',2.31])
 array(['1', '2', '2.31'], dtype='<U32')
 ```
-#### 2. ones、zero、eye的用法   *使用np的routines函数创建*
+#### 2.2.2 ones、zero、eye的用法   *使用np的routines函数创建*
 shape表示数组的形状
 ```python
 import numpy as np
@@ -97,7 +96,9 @@ np.zeros(shape=[2,3]) # 构建2行3列的，元素都是0.
 # numpy.eye（N，M =无，k = 0，dtype = <class’flove’>，order =‘C’ ） N表示行数，M表示列数，k对角线的索引，0指的是主对角线，负值指的是下对角线
 np.eye(3) # 返回一个3行3列，对角线为1
 ```
-#### 3.linespace
+
+#### 2.2.3 linespace
+
 numpy.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None, axis=0)
 在start和stop之间产生num个线性向量，每个向量之间的距离是相同的
 * start：样本数据开始点
@@ -118,7 +119,7 @@ array([  0.        ,   5.26315789,  10.52631579,  15.78947368,
         63.15789474,  68.42105263,  73.68421053,  78.94736842,
         84.21052632,  89.47368421,  94.73684211, 100.        ])
 ```
-#### 4. arange()
+#### 2.2.4 arange()
 arange([start,] stop[, step,], dtype=None, *, like=None)
 * start：
 * stop：
@@ -129,7 +130,7 @@ import numpy as np
 np.arange(1,10,step=3)
 # array([1, 4, 7])
 ```
-#### 5. random.randint()
+#### 2.2.5 random.randint()
 randint(low, high=None, size=None, dtype=int)
 ```python
 import numpy as np
@@ -138,7 +139,7 @@ np.random.randint(1,30,size=2)
 np.random.randint(1,30,size=(2,4))
 # array([[26, 15, 25, 10],[25,  7, 20,  1]])
 ```
-#### 6. numpy的常用属性
+#### 2.2.6 numpy的常用属性
 * shape：返回数组的形状。 arr.shape
 * ndim: 返回数组的维度。 arr.ndim
 * size：返回数组的元素个数。 arr.size
@@ -146,20 +147,20 @@ np.random.randint(1,30,size=(2,4))
 * type：返回数组的类型。 type(arr)
 
 
-#### 7. numpy的大数据类型
+#### 2.2.7 numpy的大数据类型
 * array(dtype=?) ：可以设定数据类型，在旧数组操作
 * arr.dtype-?：可以修改数据类型，在旧数组操作
 * arr.astype(？)：返回新的数组
 
 
 
-#### 8. 索引操作和列表同理
+#### 2.2.8 索引操作和列表同理
 ```python
 import numpy as np
 arr = np.random.randint(0,100,size=(5,6))
 arr[0][1]
 ```
-#### 9. 切片操作
+#### 2.2.9 切片操作
 ```python
 import numpy as np
 arr = np.random.randint(0,100,size=(5,6))
@@ -178,7 +179,7 @@ print(arr[::-1,::-1]) # 所有倒置
 
 
 ```
-#### 10. 变形
+#### 2.2.10 变形
 ```python
 import numpy as np
 arr = np.random.randint(0,100,size=(3,4))
@@ -188,7 +189,7 @@ arr.reshape((12,))
 arr.reshape((2,-1)) #-1 自动计算
 
 ```
-#### 11. 级联操作
+#### 2.2.11 级联操作
 将多个numpy数组进行横向或者纵向的拼接
 * axis轴向的理解
   * 0:列
@@ -213,7 +214,7 @@ img_9 = np.concatenate((img_3,img_3,img_3),axis=0)
 print(plt.imshow(img_9)) 
 ```
 
-#### 12. 常见的聚合操作
+#### 2.2.12 常见的聚合操作
 ```python
 # sum,max,min,mean. mean是平均值的意思
 import numpy as np
@@ -223,7 +224,7 @@ print(arr.sum(axis=1)) # 行的总和
 print(arr.sum()) # 元素总和
 ```
 
-#### 13. 常用的数学函数
+#### 2.2.13 常用的数学函数
 * numpy提供了标准的三角函数：sin(),cos(),tan()
 * numpy.around(a,decimals)函数返回指定数字的四舍五入值
   * 参数说明：
@@ -236,7 +237,7 @@ np.sin(arr) # 对每个元素进行计算sin,返回数组
 
 print(np.around(arr))
 ```
-#### 14. 常用统计函数
+#### 2.2.14 常用统计函数
 * numpy.amin()和numpy.amax()，用英语计算数组中的元素沿指定轴的最小、最大值
 * numpy.ptp()：计算数组中元素最大值与最小值的差（最大值-最小值）
 * numpy.median()函数用于计算数组a中元素的中位数（中值）
@@ -252,7 +253,7 @@ print(a.var())
 ```
 
 
-#### 15. 矩阵相关
+#### 2.2.15 矩阵相关
 ```python
 # 转置矩阵
 import numpy as np
@@ -262,7 +263,7 @@ print(arr.T)  # 将行变成列，列变成行
 # numpy.dot(a,b,out=None) a：一个数组，b：一个数组
 ```
 
-### 2.2.2 使用plt创建
+### 3 使用plt创建
 将外部的一张图片读取加载到numpy数组中，然后尝试改变数组元素的数值，查看对原始图片的影响。
 ```python
 import matplotlib.pyplot as plt

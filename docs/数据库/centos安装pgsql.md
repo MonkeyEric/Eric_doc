@@ -1,6 +1,6 @@
-# centos 安装pgsql
+
 > 注意：本环境是基于centos8，其他可能不适合，谨慎使用
-# 一、安装流程
+## 一、安装流程
 1. 列出可用的PostgreSQL模块流，请输入:
 ```shell
 dnf module list postgresql
@@ -40,7 +40,7 @@ sudo -u postgres psql -c "SELECT version();"
 PostgreSQL 10.6 on x86_64-redhat-linux-gnu, compiled by gcc (GCC) 8.2.1 20180905 (Red Hat 8.2.1-3), 64-bit
 ```
 
-# 二、角色和验证方法
+## 二、角色和验证方法
 PostgreSQL支持多种身份验证方法。最常用的方法是：
 
 * 信任-只要符合定义的条件，角色就可以不使用密码进行连接pg_hba.conf。
@@ -63,7 +63,7 @@ sudo su - postgres
 psql
 ```
 退出，输入q.
-# 三、创建角色、数据库、设置密码
+## 三、创建角色、数据库、设置密码
 1. 进入到PostgreSQL shell
 ```shell
 sudo -u postgres psql
@@ -91,7 +91,7 @@ sudo systemctl restart postgresql
 sudo systemctl reload postgresql
 ```
 
-# 四、远程访问
+## 四、远程访问
 系统配置文件路径:
 ```shell
 /var/lib/pgsql/10/data/postgresql.conf
@@ -125,5 +125,5 @@ host    janedb          jane            0.0.0.0/0                md5
 host    all             jane            192.168.1.134            trust
 ```
 
-# 五、感谢原本博主
+## 五、感谢原本博主
 [支持原创，点赞分享](https://blog.csdn.net/weixin_39983404/article/details/110571868)
